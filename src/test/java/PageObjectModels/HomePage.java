@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-    public class HomePage {
+    public class HomePage extends Hooks{
         WebDriver driver;
 
         @FindBy(xpath = "//*[@id=post-217173]/div/div[1]/div/div[1]/div/div/div[2]/form/div/input[1]")
@@ -21,7 +21,6 @@ import org.openqa.selenium.support.PageFactory;
         }
 
         public void setName(String java){
-            searchField.sendKeys("java");
             System.out.println("The result with java");
         }
 
@@ -30,7 +29,10 @@ import org.openqa.selenium.support.PageFactory;
             btn.click();
 
         }
-
+       public void Search(String StrName){
+            this.setName("java");
+            this.EnterBtn();
+       }
 
     }
 

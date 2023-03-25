@@ -8,11 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 
 
 
-public class SecondPage {
+public class SecondPage extends Hooks{
 
     public static WebDriver driver;
 
-    @FindBy(xpath = "//*[@id=post-217439]/h2/a")
+    @FindBy(xpath = "//*[@id=post-217275]/div[1]/h1")
     WebElement txt;
 
     public SecondPage(WebDriver driver) {
@@ -20,7 +20,7 @@ public class SecondPage {
         PageFactory.initElements(driver,this);
     }
 
-    public void Results() {
-        System.out.println("Test passed");
+    public void Results(String Uname){
+        this.Results("Appium with Java and Sauce Labs");
     }
 }

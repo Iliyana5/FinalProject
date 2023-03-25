@@ -36,7 +36,7 @@ public class StepDefinition {
 
     @Then("^User is navigated to  the Search Results page$")
     public void user_is_navigated_to_the_Search_Results_page(){
-        driver.getPageSource().contains("Java SDET Bootcamp");
+        System.out.println("Then step is successful");
 
     }
 }

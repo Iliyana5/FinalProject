@@ -1,11 +1,12 @@
 package PageObjectModels;
 
 
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class SecondPage extends Hooks{
@@ -20,7 +21,12 @@ public class SecondPage extends Hooks{
         PageFactory.initElements(driver,this);
     }
 
-    public void Results(String Uname){
-        this.Results("Appium with Java and Sauce Labs");
+    public String results(){
+        WebDriverWait wait = new WebDriverWait(driver,20);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=post-217275]/div[1]/h1")));
+        Assert.assertEquals(true, driver.findElement(By.xpath("//*[@id=post-217275]/div[1]/h1")));
+        return txt.getText();
+
+
     }
 }

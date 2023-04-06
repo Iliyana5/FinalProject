@@ -1,17 +1,23 @@
 package PageObjectModels;
 
-import org.openqa.selenium.*;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-    public class HomePage extends Hooks{
+    public class HomePage extends Hooks {
         WebDriver driver;
 
-        @FindBy(xpath = "//*[@id=post-217173]/div/div[1]/div/div[1]/div/div/div[2]/form/div/input[1]")
-        WebElement searchField;
+        @FindBy(className = "et_pb_s")
+        WebElement searchTextBox;
 
-        @FindBy(xpath = "//*[@id=post-217173]/div/div[1]/div/div[1]/div/div/div[2]/form/div/input[5]")
+        @FindBy(className = "et_pb_searchsubmit")
         WebElement btn;
 
 
@@ -20,18 +26,25 @@ import org.openqa.selenium.support.PageFactory;
              PageFactory.initElements(driver,this);
         }
 
-        public void setName(String java){
-            System.out.println("The result with java");
+        public void search (String SearchTerm) {
+            WebDriverWait wait = new WebDriverWait(driver,10);
+            wait.until(ExpectedConditions.elementToBeClickable(By.className("et_pb_s")));
+            searchTextBox.clear();
+            searchTextBox.sendKeys("SearchTerm");
+
+
+
         }
 
 
-        public void EnterBtn() {
+
+
+        public void enterBtn() {
+
+
             btn.click();
 
-        }
-       public void Search(String StrName){
-            this.setName("java");
-            this.EnterBtn();
+
        }
 
     }

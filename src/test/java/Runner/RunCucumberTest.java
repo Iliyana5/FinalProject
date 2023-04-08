@@ -12,11 +12,11 @@ import org.junit.runner.RunWith;
 @CucumberOptions(strict = true,
         features ={"classpath:features/"},
         tags = {"@search"},
-        glue={"StepDefinition"},
+        glue={"StepDefinitions"},
 
         plugin = {"pretty", "html:target/cucumber-reports"},
         monochrome = true
 )
-public class RunCucumberTest extends Hooks{
+public class RunCucumberTest extends Hooks {
 
 }
